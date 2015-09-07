@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :fighting_fleets
 
-  resources :fights
+  resources :fights do
+    resources :fighting_fleets do
+      resources :ship_groups
 
   resources :sciences
 

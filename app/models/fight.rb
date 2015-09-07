@@ -1,18 +1,18 @@
-class Fight#< ActiveRecord::Base
+class Fight< ActiveRecord::Base
 #  belongs_to :user
 #  belongs_to :attacker, :class_name => 'User', :foreign_key => 'attacker_id', inverse_of: :attacks
 #  belongs_to :defender, :class_name => 'User', :foreign_key => 'defender_id', inverse_of: :defends
- 
+has_one :fighting_fleet 
 
-  def initialize
-     @number_of_spy_probes = 1
-     @number_of_emp_ships = 4
-     @spy_level_attacker = 2
-     @spy_level_defender = 1
-     @spy_event = true
-     @ships = {s1: {name: "ship1", damage: 5, hp: 15}, s2: {name: "ship2", damage: 4, hp: 20}}
+  #def initialize
+   #  @number_of_spy_probes = 1
+    # @number_of_emp_ships = 4
+    # @spy_level_attacker = 2
+    # @spy_level_defender = 1
+    # @spy_event = true
+    # @ships = {s1: {name: "ship1", damage: 5, hp: 15}, s2: {name: "ship2", damage: 4, hp: 20}}
  
-  end
+ # end
 
   def time_to_fight
 #    time=self.time.to_i - Time.now.to_i 
