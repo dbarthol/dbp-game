@@ -27,17 +27,18 @@
     <%= f.submit %>
   </div>
 
-  <table align="center">
+  <table align="center" width="60%">
+  <capitation align="right"><h1>Stelle eine Flotte zum Angriff zusammen:</h1><capitation>
     <tr>
-      <th>Einheitenname</th>
-      <th>Verfügbar</th>
-      <th>Entsenden</th>
+      <th><h2>Einheitenname</h2></th>
+      <th><h2>Verfügbar</h2></th>
+      <th><h2>Entsenden</h2></th>
     </tr>
-   <% @ships.each do |ship| %>
+   <% @units.each do |unit| %>
     <tr>
-      <td><%=ship.id%></td>
-      <td>int</td>
-      <td>numberofships</td>
+      <td><%=unit.name%></td>
+      <td>10</td>
+      <td>send</td>
     </tr>
    <%end %>
    </table>
