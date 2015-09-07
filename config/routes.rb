@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :fights do
     resources :fighting_fleets do
       resources :ship_groups
+    end
+  end    
 
   resources :sciences
 
@@ -81,3 +83,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+

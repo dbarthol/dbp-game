@@ -26,4 +26,20 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+  <table align="center">
+    <tr>
+      <th>Einheitenname</th>
+      <th>Verfügbar</th>
+      <th>Entsenden</th>
+    </tr>
+   <% @ships.each do |ship| %>
+    <tr>
+      <td><%=ship.id%></td>
+      <td>int</td>
+      <td>numberofships</td>
+    </tr>
+   <%end %>
+   </table>
+
 <% end %>

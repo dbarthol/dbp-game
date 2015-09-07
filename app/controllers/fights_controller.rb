@@ -16,16 +16,20 @@ class FightsController < ApplicationController
   # GET /fights/new
   def new
     @fight = Fight.new
+    @ships = Ship.all 
+
   #  @fight.report = Fight.report(@fight.attacker_id, @fight.defender_id)
   end
 
   # GET /fights/1/edit
   def edit
+    @ships = Ship.all
   end
 
   # POST /fights
   # POST /fights.json
   def create
+    @ships = Ship.all 
     @fight = Fight.new(fight_params)
     respond_to do |format|
       if @fight.save

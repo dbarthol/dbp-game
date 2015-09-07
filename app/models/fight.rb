@@ -1,7 +1,7 @@
 class Fight< ActiveRecord::Base
-#  belongs_to :user
-#  belongs_to :attacker, :class_name => 'User', :foreign_key => 'attacker_id', inverse_of: :attacks
-#  belongs_to :defender, :class_name => 'User', :foreign_key => 'defender_id', inverse_of: :defends
+  belongs_to :user
+  belongs_to :attacker, :class_name => 'User', :foreign_key => 'attacker_id', inverse_of: :attacks
+  belongs_to :defender, :class_name => 'User', :foreign_key => 'defender_id', inverse_of: :defends
 has_one :fighting_fleet 
 
   #def initialize
@@ -58,30 +58,30 @@ has_one :fighting_fleet
     end
   end
 
-  def emp_phase
-    if @number_of_emp_ships > 0
-      tmp = (1-(1/(1+0.5*@number_of_emp_ships)))
-      randomtmp = random
-      if tmp > randomtmp
-        puts "Schilde zerstört!!! #{tmp} #{randomtmp}"
-        return true
-      end
-    end
-    puts "Schilde nicht zerstört!!! #{tmp} #{randomtmp} "
-    return false
+  #def emp_phase
+   # if @number_of_emp_ships > 0
+    #  tmp = (1-(1/(1+0.5*@number_of_emp_ships)))
+     # randomtmp = random
+      #if tmp > randomtmp
+       # puts "Schilde zerstört!!! #{tmp} #{randomtmp}"
+        #return true
+      #end
+    #end
+    #puts "Schilde nicht zerstört!!! #{tmp} #{randomtmp} "
+    #return false
     
-  end
+  #end
 
 
  
 
 
-f=Fight.new
+#f=Fight.new
 #f.@number_of_spy_probes =1
 #puts "Starte Spy Phase:"
 #f.number_of_spy_probes = 1
-f.emp_phase
-f.spy_phase
+#f.emp_phase
+#f.spy_phase
 
 
 end
