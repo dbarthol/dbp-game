@@ -16,25 +16,30 @@ class FightsController < ApplicationController
   # GET /fights/new
   def new
     @fight = Fight.new
+    
     @units = Unit.all 
+    @fleet = FightingFleet.new
 
   #  @fight.report = Fight.report(@fight.attacker_id, @fight.defender_id)
   end
 
   # GET /fights/1/edit
   def edit
+    @fight.report = @fight.report_start
     @units = Unit.all
+
   end
 
   # POST /fights
   # POST /fights.json
   def create
-    @ships = Unit.all 
+    @units = Unit.all 
     @fight = Fight.new(fight_params)
+    #@fleet = FightingFleet.new(fighting_fleet_params)
     respond_to do |format|
+      @fight.report = @fight.report_start
       if @fight.save
-         @fight.report = @fight.report_start
-         @fight.save
+         @fleet.save
         format.html { redirect_to @fight, notice: 'Fight was successfully created.' }
         format.json { render :show, status: :created, location: @fight }
       else
