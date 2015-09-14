@@ -129,7 +129,7 @@ Facility.create([
 		icon: 'shield_big.png'
 	}])
 
-Science.create([
+science0=Science.create(
 	{
 		id: 4001,
 		cost1: 10,
@@ -142,9 +142,8 @@ Science.create([
 		tier: 1,
 		science_condition_id: 1,
 		icon: 'huelle.png',
-		level_cap: nil
-	},
-	{
+	})
+	science1=Science.create({
 		id: 4002,
 		cost1: 4,
 		cost2: 3,
@@ -157,8 +156,8 @@ Science.create([
 		science_condition_id: 2,
 		icon: 'laser.png',
 		level_cap: nil
-	},
-	{
+	})
+	science2=Science.create({
 		id: 4003,
 		cost1: 0,
 		cost2: 3,
@@ -171,8 +170,8 @@ Science.create([
 		science_condition_id: 3,
 		icon: 'spionage.png',
 		level_cap: nil
-	},
-	{
+	})
+	science3=Science.create({
 		id: 4004,
 		cost1: 8,
 		cost2: 0,
@@ -185,8 +184,8 @@ Science.create([
 		science_condition_id: 4,
 		icon: 'triebwerke.png',
 		level_cap: nil
-	},
-	{
+	})
+	science4=Science.create({
 		id: 4005,
 		cost1: 4,
 		cost2: 8,
@@ -199,8 +198,8 @@ Science.create([
 		science_condition_id: 5,
 		icon: 'ionen.png',
 		level_cap: nil
-	},
-	{
+	})
+	science5=Science.create({
 		id: 4006,
 		cost1: 0,
 		cost2: 6,
@@ -213,8 +212,8 @@ Science.create([
 		science_condition_id: 6,
 		icon: 'schilde.png',
 		level_cap: nil
-	},
-	{
+	})
+	science6=Science.create({
 		id: 4007,
 		cost1: 20,
 		cost2: 0,
@@ -227,8 +226,8 @@ Science.create([
 		science_condition_id: 7,
 		icon: 'pilotentraining.png',
 		level_cap: 20
-	},
-	{
+	})
+	science7=Science.create({
 		id: 4008,
 		cost1: 0,
 		cost2: 160,
@@ -241,8 +240,8 @@ Science.create([
 		science_condition_id: 10,
 		icon: 'netzwerk.png',
 		level_cap: 8
-	},
-	{
+	})
+	science8=Science.create({
 		id: 4009,
 		cost1: 320,
 		cost2: 0,
@@ -255,8 +254,8 @@ Science.create([
 		science_condition_id: 9,
 		icon: 'pioniersausbildung.png',
 		level_cap: 6
-	},
-	{
+	})
+	science9=Science.create({
 		id: 4010,
 		cost1: 20,
 		cost2: 10,
@@ -269,7 +268,7 @@ Science.create([
 		science_condition_id: 8,
 		icon: 'kinetik.png',
 		level_cap: nil
-	}])
+	})
 
 #Creator for table Trades
 Trade.create([
@@ -543,54 +542,7 @@ Message.create([
 	},
 
 	# Messages for Units
-	{
-	  mes: 'Dienen zur Spionage anderer Spieler',
-	  code: 3001
-	},
-	{
-	  mes: 'Dienen zur Schildverteidigung der eigenen Flotte',
-	  code: 3002
-	},
-	{
-	  mes: 'Dienen zur Ausschaltung gegnerischer Schilde, offensive Einheit, ionenbasierend',
-	  code: 3003
-	},
-	{
-	  mes: 'Offensive Einheit, effektiv gegen orbitale Waffenplattform(1000facher Schaden)',
-	  code: 3004
-	},
-	{
-	  mes: 'Dienen zum Transport von Ressourcen',
-	  code: 3005
-	},
-	{
-	  mes: 'Dienen zum Transport von Ressourcen',
-	  code: 3006
-	},
-	{
-	  mes: 'Dienen zur Erforschung des unbekannten Weltraumes',
-	  code: 3007
-	},
-	{
-	  mes: 'Offensive Einheit, laserbasierend',
-	  code: 3008
-	},
-	{
-	  mes: 'Offensive Einheit, laserbasierend',
-	  code: 3009
-	},
-	{
-	  mes: 'Offensive Einheit, ionenbasierend',
-	  code: 3010
-	},
-	{
-	  mes: 'Offensive Einheit, kinetikbasierend',
-	  code:	3011
-	},
-	{
-	  mes: 'Offensive Einheit, effektiv gegen Anlagen(10facher Schaden), kinetikbasieren',
-	  code:	3012
-	},
+	
 	{
 	  mes: 'Dienen zur Energiegewinnung',
 	  code:	3013
@@ -874,37 +826,291 @@ Message.create([
 	  mes: 'Deine Einheiten haben einen seltsamen großen Würfel gefunden, der plötzlich klein wurde.
 	        Sie nahmen diesen Würfel und verkauften ihn an eine mechanoide Rasse.',
 	  code: 5406
-	}
-])
+	}])
+message4=Message.create(
+	{
+	  mes: 'Dienen zur Spionage anderer Spieler',
+	  code: 3001
+	})
+	message11=Message.create({
+	  mes: 'Dienen zur Schildverteidigung der eigenen Flotte',
+	  code: 3002
+	})
+	message12=Message.create({
+	  mes: 'Dienen zur Ausschaltung gegnerischer Schilde, offensive Einheit, ionenbasierend',
+	  code: 3003
+	})
+	message10=Message.create({
+	  mes: 'Offensive Einheit, effektiv gegen orbitale Waffenplattform(1000facher Schaden)',
+	  code: 3004
+	})
+	message2=Message.create({
+	  mes: 'Dienen zum Transport von Ressourcen',
+	  code: 3005
+	})
+	message3=Message.create({
+	  mes: 'Dienen zum Transport von Ressourcen',
+	  code: 3006
+	})
+	message1=Message.create({
+	  mes: 'Dienen zur Erforschung des unbekannten Weltraumes',
+	  code: 3007
+	})
+	message5=Message.create({
+	  mes: 'Offensive Einheit, laserbasierend',
+	  code: 3008
+	})
+	message6=Message.create({
+	  mes: 'Offensive Einheit, laserbasierend',
+	  code: 3009
+	})
+	message7=Message.create({
+	  mes: 'Offensive Einheit, ionenbasierend',
+	  code: 3010
+	})
+	message8=Message.create({
+	  mes: 'Offensive Einheit, kinetikbasierend',
+	  code:	3011
+	})
+	message9=Message.create({
+	  mes: 'Offensive Einheit, effektiv gegen Anlagen(10facher Schaden), kinetikbasieren',
+	  code:	3012
+	})
 
 #Create DamageType and Units
-DamageType.create({"name"=>"Laser", "shell_mult"=>1.5,"shield_mult"=>1,"station_mult"=>1,"plattform_mult"=>1})
-DamageType.create({"name"=>"Ionen", "shell_mult"=>1,"shield_mult"=>1.5,"station_mult"=>1,"plattform_mult"=>1})
-DamageType.create({"name"=>"Bomben", "shell_mult"=>1,"shield_mult"=>1,"station_mult"=>10,"plattform_mult"=>1})
-DamageType.create({"name"=>"Teleporter", "shell_mult"=>1,"shield_mult"=>1,"station_mult"=>1,"plattform_mult"=>1000})
-
-message1=Message.find_by code: 3007
-message2=Message.find_by code: 3005
-message3=Message.find_by code: 3006
-message4=Message.find_by code: 3001
-message5=Message.find_by code: 3008
-message6=Message.find_by code: 3009
-message7=Message.find_by code: 3010
-message8=Message.find_by code: 3011
-message9=Message.find_by code: 3012
-message10=Message.find_by code: 3004
-message11=Message.find_by code: 3002
-message12=Message.find_by code: 3003
-
-Unit.create({"icon" => "entities/resource-ship.png", "name"=>"Expeditionsschiff", "metal_price"=>40, "crystal_price"=>0, "fuel_price"=>10, "shell"=>50, "damage"=>2, "damage_type_id"=>1, "cargo"=>400, "speed"=>8, "conditions"=>"", "duration"=>60, "message"=> message1})
-Unit.create({"icon" => "entities/transporter-small.png", "name"=>"Kleiner Transporter", "metal_price"=>5, "crystal_price"=>2, "fuel_price"=>0, "shell"=>2, "damage"=>0, "damage_type_id"=>nil, "cargo"=>80, "speed"=>4, "conditions"=>"", "duration"=>60,"message"=>message2})
-Unit.create({"icon" => "entities/transporter-big.png", "name"=>"Großer Transporter", "metal_price"=>20, "crystal_price"=>8, "fuel_price"=>0, "shell"=>8, "damage"=>0, "damage_type_id"=>nil, "cargo"=>400, "speed"=>8, "conditions"=>"", "duration"=>60, "message"=>message3})
-Unit.create({"icon" => "entities/spy-drone.png", "name"=>"Spionagedrohne", "metal_price"=>2, "crystal_price"=>0, "fuel_price"=>2, "shell"=>1, "damage"=>0, "damage_type_id"=>nil, "cargo"=>1, "speed"=>128, "conditions"=>"", "duration"=>60,"message"=>message4})
-Unit.create({"icon" => "entities/hunter.png", "name"=>"Jäger", "metal_price"=>2, "crystal_price"=>1, "fuel_price"=>0, "shell"=>1, "damage"=>1, "damage_type_id"=>1, "cargo"=>2, "speed"=>8, "conditions"=>"", "duration"=>60, "message"=>message5})
-Unit.create({"icon" => "entities/fregatte.png", "name"=>"Fregatte", "metal_price"=>20, "crystal_price"=>10, "fuel_price"=>0, "shell"=>10, "damage"=>12, "damage_type_id"=>2, "cargo"=>5, "speed"=>8, "conditions"=>"", "duration"=>60, "message"=>message6})
-Unit.create({"icon" => "entities/cruiser.png", "name"=>"Kreuzer", "metal_price"=>20, "crystal_price"=>40, "fuel_price"=>0, "shell"=>10, "damage"=>50, "damage_type_id"=>2, "cargo"=>8, "speed"=>4, "conditions"=>"", "duration"=>60, "message"=>message7})
-Unit.create({"icon" => "entities/bomber.png", "name"=>"Bomber", "metal_price"=>20, "crystal_price"=>0, "fuel_price"=>10, "shell"=>20, "damage"=>10, "damage_type_id"=>3, "cargo"=>5, "speed"=>8, "conditions"=>"", "duration"=>60, "message"=>message8})
-Unit.create({"icon" => "entities/destroyer.png", "name"=>"Zerstörer", "metal_price"=>200, "crystal_price"=>100, "fuel_price"=>0, "shell"=>200, "damage"=>500, "damage_type_id"=>3, "cargo"=>20, "speed"=>4, "conditions"=>"", "duration"=>60, "message"=>message9})
-Unit.create({"icon" => "entities/bomb-teleporter.png", "name"=>"Bombenteleporter", "metal_price"=>0, "crystal_price"=>250, "fuel_price"=>100, "shell"=>100, "damage"=>50, "damage_type_id"=>4, "cargo"=>100, "speed"=>1, "conditions"=>"", "duration"=>60,"message"=>message10})
-Unit.create({"icon" => "entities/emp-ship.png", "name"=>"EMP-Schiff", "metal_price"=>0, "crystal_price"=>400, "fuel_price"=>100, "shell"=>100, "damage"=>20, "damage_type_id"=>2, "cargo"=>120, "speed"=>1, "conditions"=>"", "duration"=>60,"message"=>message11})
-Unit.create({"icon" => "entities/mobile-shield-generator.png", "name"=>"Mobiler Schild", "metal_price"=>0, "crystal_price"=>4, "fuel_price"=>1, "shell"=>5, "damage"=>0, "damage_type_id"=>nil, "cargo"=>2, "speed"=>4, "conditions"=>"", "duration"=>60, "message"=>message12})
+damage_type1=DamageType.create({
+					"name"=>"laser",
+					"shell_mult"=>1.5,
+					"shield_mult"=>1,
+					"station_mult"=>1,
+					"plattform_mult"=>1})
+damage_type2=DamageType.create({
+					"name"=>"ionen",
+					"shell_mult"=>1,
+					"shield_mult"=>1.5,
+					"station_mult"=>1,
+					"plattform_mult"=>1})
+damage_type3=DamageType.create({
+					"name"=>"bomb", 
+					"shell_mult"=>1,
+					"shield_mult"=>1,
+					"station_mult"=>10,
+					"plattform_mult"=>1})
+damage_type4=DamageType.create({
+					"name"=>"teleport", 
+					"shell_mult"=>1,
+					"shield_mult"=>1,
+					"station_mult"=>1,
+					"plattform_mult"=>1000})
+damage_type5=DamageType.create({
+					"name"=>"unbewaffnet", 
+					"shell_mult"=>0,
+					"shield_mult"=>0,
+					"station_mult"=>0,
+					"plattform_mult"=>0})
+Unit.create({ 
+				"name"=>"Expeditionsschiff", 
+				"metal_price"=>40, 
+				"crystal_price"=>0, 
+				"fuel_price"=>10, 
+				"total_cost"=>80, 
+				"shell"=>50, 
+				"damage"=>2, 
+				"damage_type"=>damage_type1, 
+				"cargo"=>400, 
+				"speed"=>8, 
+				"shipyard_requirement"=>6, 
+				"science_one_level"=>4, 
+				"science_two_level"=>4, 
+				"message"=> message1, 
+				"icon" =>"entities/resource-ship.png", 
+				"science_one_instance"=>science3, 
+				"science_two_instance"=>science1})
+Unit.create({
+				"name"=>"Kleiner Transporter", 
+				"metal_price"=>5, 
+				"crystal_price"=>2, 
+				"fuel_price"=>0, 
+				"total_cost"=>9, 
+				"shell"=>2, 
+				"damage"=>0, 
+				"damage_type"=>damage_type5, 
+				"cargo"=>80, 
+				"speed"=>4, 
+				"shipyard_requirement"=>4, 
+				"science_one_level"=>2, 
+				"science_two_level"=>0,
+				"message"=>message2, 
+				"icon" =>"entities/transporter-small.png",
+				"science_one_instance"=>science3})
+Unit.create({
+				"name"=>"GroßerTransporter",
+				"metal_price"=>20,
+				"crystal_price"=>8,
+				"fuel_price"=>0,
+				"total_cost"=>36,
+				"shell"=>8,
+				"damage"=>0,
+				"damage_type"=>damage_type5,
+				"cargo"=>400,
+				"speed"=>8,
+				"shipyard_requirement"=>8,
+				"science_one_level"=>8,
+				"science_two_level"=>8,
+				"message"=>message3,
+				"icon" =>"entities/transporter-big.png",
+				"science_one_instance"=>science0,
+				"science_two_instance"=>science3})
+Unit.create({
+				"name"=>"Spionagedrohne",
+				"metal_price"=>2,
+				"crystal_price"=>0,
+				"fuel_price"=>2,
+				"total_cost"=>10,
+				"shell"=>1,
+				"damage"=>0,
+				"damage_type"=>damage_type5,
+				"cargo"=>1,
+				"speed"=>128,
+				"shipyard_requirement"=>4,
+				"science_one_level"=>2,
+				"science_two_level"=>2,"message"=>message4,
+				"icon" =>"entities/spy-drone.png",
+				"science_one_instance"=>science0,
+				"science_two_instance"=>science3})
+Unit.create({
+				"name"=>"Jäger",
+				"metal_price"=>2,
+				"crystal_price"=>1,
+				"fuel_price"=>0,
+				"total_cost"=>4,
+				"shell"=>1,
+				"damage"=>1,
+				"damage_type"=>damage_type1,
+				"cargo"=>2,
+				"speed"=>8,
+				"shipyard_requirement"=>2,
+				"science_one_level"=>2,
+				"science_two_level"=>2,
+				"message"=>message5,
+				"icon" =>"entities/hunter.png",
+				"science_one_instance"=>science0,
+				"science_two_instance"=>science1})
+Unit.create({
+				"name"=>"Fregatte",
+				"metal_price"=>20,
+				"crystal_price"=>10,
+				"fuel_price"=>0,
+				"total_cost"=>40,
+				"shell"=>10,
+				"damage"=>12,
+				"damage_type"=>damage_type2,
+				"cargo"=>5,
+				"speed"=>8,
+				"shipyard_requirement"=>4,
+				"science_one_level"=>4,
+				"science_two_level"=>12,"message"=>message6,
+				"icon" =>"entities/fregatte.png",
+				"science_one_instance"=>science3,
+				"science_two_instance"=>science1})
+Unit.create({
+				"name"=>"Kreuzer",
+				"metal_price"=>20,
+				"crystal_price"=>40,
+				"fuel_price"=>0,
+				"total_cost"=>100,
+				"shell"=>10,
+				"damage"=>50,
+				"damage_type"=>damage_type2,
+				"cargo"=>8,
+				"speed"=>4,
+				"shipyard_requirement"=>6,
+				"science_one_level"=>6,
+				"science_two_level"=>6,"message"=>message7,
+				"icon" =>"entities/cruiser.png",
+				"science_one_instance"=>science3,
+				"science_two_instance"=>science4})
+Unit.create({
+				"name"=>"Bomber",
+				"metal_price"=>20,
+				"crystal_price"=>0,
+				"fuel_price"=>10,
+				"total_cost"=>60,
+				"shell"=>20,
+				"damage"=>10,
+				"damage_type"=>damage_type3,
+				"cargo"=>5,
+				"speed"=>8,
+				"shipyard_requirement"=>8,
+				"science_one_level"=>8,
+				"science_two_level"=>6,"message"=>message8,
+				"icon" =>"entities/bomber.png",
+				"science_one_instance"=>science3,
+				"science_two_instance"=>science9})
+Unit.create({
+				"name"=>"Zerstörer",
+				"metal_price"=>200,
+				"crystal_price"=>100,
+				"fuel_price"=>0,
+				"total_cost"=>400,
+				"shell"=>200,
+				"damage"=>500,
+				"damage_type"=>damage_type3,
+				"cargo"=>20,
+				"speed"=>4,
+				"shipyard_requirement"=>10,
+				"science_one_level"=>10,
+				"science_two_level"=>8,"message"=>message9,
+				"icon" =>"entities/destroyer.png",
+				"science_one_instance"=>science3,
+				"science_two_instance"=>science9})
+Unit.create({
+				"name"=>"Bombenteleporter",
+				"metal_price"=>0,
+				"crystal_price"=>250,
+				"fuel_price"=>100,
+				"total_cost"=>900,
+				"shell"=>100,
+				"damage"=>50,
+				"damage_type"=>damage_type4,
+				"cargo"=>100,
+				"speed"=>1,
+				"shipyard_requirement"=>12,
+				"science_one_level"=>10,
+				"science_two_level"=>12,"message"=>message10,
+				"icon" =>"entities/bomb-teleporter.png",
+				"science_one_instance"=>science3,
+				"science_two_instance"=>science9})
+Unit.create({
+				"name"=>"EMP-Schiff",
+				"metal_price"=>0,
+				"crystal_price"=>400,
+				"fuel_price"=>100,
+				"total_cost"=>1200,
+				"shell"=>100,
+				"damage"=>20,
+				"damage_type"=>damage_type2,
+				"cargo"=>120,
+				"speed"=>1,
+				"shipyard_requirement"=>10,
+				"science_one_level"=>10,
+				"science_two_level"=>12,"message"=>message11,
+				"icon" =>"entities/emp-ship.png",
+				"science_one_instance"=>science3,
+				"science_two_instance"=>science4})
+Unit.create({
+				"name"=>"Mobiler Schild",
+				"metal_price"=>0,
+				"crystal_price"=>4,
+				"fuel_price"=>1,
+				"total_cost"=>12,
+				"shell"=>5, "damage"=>0,
+				"damage_type"=>damage_type5,
+				"cargo"=>2,
+				"speed"=>4,
+				"shipyard_requirement"=>10,
+				"science_one_level"=>10,
+				"science_two_level"=>10,"message"=>message12, 
+				"icon" =>"entities/mobile-shield-generator.png",
+				"science_one_instance"=>science3,
+				"science_two_instance"=>science5})
