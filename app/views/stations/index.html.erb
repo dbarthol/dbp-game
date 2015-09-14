@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stations</h1>
+
+<table id="table_stations">
+  <thead>
+    <tr>
+      <th>Icon</th>
+      <th>IconPic</th>
+      <th>Name</th>
+      <th>Costmineral</th>
+      <th>Costcristal</th>
+      <th>Costfuel</th>
+      <th>Level</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stations.each do |station| %>
+      <tr>
+        <td><%= station.icon %></td>
+        <td>
+        <a>
+          <img src= "<%= image_url(station.icon)%>", width="50", height="50", id="icon">
+          <span><%= Message.find_by_code(station.id).mes %></span>
+         </a>
+        </td>
+        <td><%= station.name %></td>
+        <td><%= station.costMineral %></td>
+        <td><%= station.costCristal %></td>
+        <td><%= station.costFuel %></td>
+        <td><%= station.initial_level %></td>
+        <td><%= link_to 'Show', station %></td>
+        <td><%= link_to 'Edit', edit_station_path(station) %></td>
+        <td><%= link_to 'Destroy', station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Station', new_station_path %>

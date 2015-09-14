@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Icons:</strong>
+  <%= @station.icon %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @station.name %>
+</p>
+
+<p>
+  <strong>Costmineral:</strong>
+  <%= @station.costMineral %>
+</p>
+
+<p>
+  <strong>Costcristal:</strong>
+  <%= @station.costCristal %>
+</p>
+
+<p>
+  <strong>Costfuel:</strong>
+  <%= @station.costFuel %>
+</p>
+
+<p>
+  <strong>Initiallevel:</strong>
+  <%= @station.initial_level %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @station.condition %>
+</p>
+
+<p>
+  <strong>Tier:</strong>
+  <%= @station.tier %>
+</p>
+
+<%= link_to 'Edit', edit_station_path(@station) %> |
+<%= link_to 'Back', stations_path %>

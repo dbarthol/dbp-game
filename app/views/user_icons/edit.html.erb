@@ -1,0 +1,8 @@
+<% if current_user.is_user %>
+	<br>
+	<h1 class="userlabel">Benutzerbild hochladen</h1>
+
+	<%= render 'upload' %>
+
+	<p class="userbutton"><%= link_to 'Zurück', edit_user_registration_path %></p>
+<% end %>

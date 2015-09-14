@@ -7,51 +7,135 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
+
 <div id="wrapper">
 	<div id="top" >
 		<div id="login" class="content">
-			<% if user_signed_in? %>
-				<p class="login_text"><%= current_user.username %></p><br>
-				<img id="user_icon" src="https://bloggermymaze.files.wordpress.com/2009/09/klassisch_quadratisch_mittig_600.jpg"><br>
-				<p class="login_text"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
+			<% if !user_signed_in? %>
+			  <%= form_for(:user, :url => session_path(:user)) do |f| %>
+			  	<br>
+				<%= f.text_field :login, placeholder: "Username", :class => 'userlogintextfield' %>
+			    <%= f.password_field :password , placeholder: "Passwort", :class => 'userlogintextfield' %>
+			    <%= f.check_box :remember_me %>
+			    <%= f.label :remember_me %>
+			    <%= f.submit 'Sign in', :class => 'submitbutton' %>
+			  <% end %>
 			<% else %>
-				<p><%= link_to('Register', new_user_registration_path) %></p><br>
-				<p><%= link_to('Log in', new_user_session_path) %></p>
+				<p class="userbutton"><%= link_to current_user.username, profile_index_path %></p><br>
+				<% if UserIcon.find_by_user_id(current_user.id) != nil %>
+					<img id="user_icon" src="<%= image_url(UserIcon.find_by_user_id(current_user.id).image.url) %>"><br>
+				<% else %>
+					<img id="user_icon" src="<%= image_url('ui/default.png') %>"><br>
+				<% end %>
+				<p class="userbutton"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
 			<% end %>
 		</div>
 		<div id="banner" class="content">
-			<p id="game_name">SpielName</p>
+			<p id="game_name">Lunency</p>
 		</div>
 	</div>
+
+
 	<div id="mid">
 		<div id="ranking" class="content">
+			<br>
 			<% if user_signed_in? %>
-				<p>Points: </p>
-				<p>0</p>
+			    <%= link_to "Points", ranks_path%>
+				<% if(current_user.rank) %>
+				  <p id="points"><%= current_user.rank.score %></p>
+				<% end %>
 			<% else %>
 				<p>Not logged in</p>
 			<% end %>
 		</div>
+
 		<div id="resources" class="content">
-			<p><%= Time.now %></p>
-		</div>
+			<% if current_user!=nil %>
+				<table id="res-table"><tr>
+					<td>
+						<p title="Ausgewaehltes Schiff">Selected:
+							<% if current_user.activeShip!=nil%>
+				  				<%=current_user.active_ship.name%>
+							<% else %>
+			    				kein Schiff ausgewählt!
+							<% end %>
+						</p>
+					</td>
+					<td>
+						<div id="res-metal" class="tooltip" data-tooltip="Verfügbare Metall-Resourcen"></div>
+        				<% if current_user.activeShip!=nil%>
+				  			<p id="val-metal" class="val-resources"><%= Ship.find_by(id: current_user.activeShip).metal %></p>
+						<% else %>
+				  			<p>0</p>
+						<% end %>
+					</td>
+					<td>
+						<div id="res-crystal" class="tooltip" data-tooltip="Verfügbare Kristall-Resourcen"></div>
+        				<% if current_user.activeShip!=nil%>
+				  			<p id="val-crystal" class="val-resources"><%= Ship.find_by(id: current_user.activeShip).cristal %></p>
+						<% else %>
+				  			<p>0</p>
+						<% end %>
+					</td>
+					<td>
+						<div id="res-fuel" class="tooltip" data-tooltip="Verfügbare Treibstoff-Resourcen"></div>
+        				<% if current_user.activeShip!=nil %>
+				  			<p id="val-fuel" class="val-resources"><%= Ship.find_by(id: current_user.activeShip).fuel %></p>
+						<% else %>
+				  			<p>0</p>
+						<% end %>
+					</td>
+				</tr></table>
+			<% end %>
+	 	</div>
 	</div>
+
 	<div id="botm">
-		<div id="menu" class="content">
-			<br>
-			<ul>
-				<li>Feature-Liga</li>
-				<li>Schiffe</li>
-				<li>Forschung</li>
-				<li>Stationen</li>
-				<li>Anlagen</li>
-				<li>Einheiten</li>
-				<li>Einstellungen</li>
-			</ul>
+		<div id="menu-wrapper">
+			<div id="menu" class="content">
+				<br>
+				<ul>
+					<li><%= link_to "Home", root_path %></li>
+					<% if user_signed_in? %>
+						<li><%= link_to "Schiffe", ships_path %></li>
+                      	<% if current_user.activeShip!=nil %>
+                        	<% Ship.find_by(id: current_user.activeShip).update_resources%>
+                      		<li><%= link_to "Forschung", sciences_path %></li>
+							<li><%= link_to "Stationen", ship_ships_stations_path(Ship.find(current_user.activeShip)) %></li>
+							<li><%= link_to "Anlagen", facilities_path %></li>
+							<li><%= link_to "Einheiten", units_path %></li>
+							<li><%= link_to "Handel", trades_path %></li>
+							<li><%= link_to "Expeditionen", expeditions_path %></li>
+							<li><%= link_to "Kampf",fighting_fleets_path %></li>
+							<li><%= link_to "Rangliste", ranks_path %></li>
+						<% end %>
+						<li><%= link_to "Einstellungen", edit_user_registration_path %></li>
+					<% else %>
+						<li><%= link_to "Registrieren", new_user_registration_path %></li>
+					<% end %>
+				</ul>
+			</div>
+			<div id="notification" class="content">
+				<% if user_signed_in? %>
+					<%= link_to notification_view_index_path do %>
+						<div id="notification-image"></div>
+					<% end %>
+					<p id="notification-text">
+						<% if @notification_count != 0 %>
+							<%= @notification_count %>
+						<% end %>
+					</p>
+				<% else %>
+					<p>Not logged in</p>
+				<% end %>
+			</div>
 		</div>
 		<div id="game" class="content">
 			<%= yield %>
 		</div>
+	</div>
+	<div id="footer">
+		<p>Universität Osnabrück &copy; 2015</p>
 	</div>
 </div>
 </body>

@@ -1,39 +1,57 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<% if user_signed_in? %>
+  <br>
+  <h2 class="userlabel">Benutzerprofil ändern</h2>
+  <div>
+    <p class="userlabel">von Spieler <%= current_user.username %></p>
   </div>
+  <% if UserIcon.find_by_user_id(current_user.id) != nil %>
+    <img id="user_icon_profile" src="<%= image_url(UserIcon.find_by_user_id(current_user.id).image.url) %>"><br>
+    <div>
+      <p class="userbutton"><%= link_to 'Benutzerbild ändern', edit_user_icon_path(UserIcon.find_by_user_id(current_user.id)) %></p>
+      <p class="userbutton">
+      <%= link_to 'Benutzerbild entfernen', UserIcon.find_by_user_id(current_user.id), method: :delete, data: { confirm: 'Bist du dir sicher?' } %></p>
+    </div>
+  <% else %>
+    <img id="user_icon_profile" src="<%= image_url('ui/default.png') %>"><br>
+    <p class="userbutton">
+      <%= link_to 'Benutzerbild hochladen', new_user_icon_path %>
+    </p>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="field">
+      <p class="userlabel"><%= f.label :email %></p><br />
+      <p class="usertextfield"><%= f.email_field :email, autofocus: true %></p>
+    </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+    <div class="field">
+      <p class="userlabel"><%= f.label "Neues Passwort eingeben" %></p> <br />
+      <p class="usertextfield"><%= f.password_field :password, autocomplete: "off" %></p>
+    </div>
+
+    <div class="field">
+      <p class="userlabel"><%= f.label "Passwort bestätigen" %></p><br />
+      <p class="usertextfield"><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+    </div>
+
+    <div class="field">
+      <p class="userlabel"><%= f.label "Aktuelles Passwort wird zur Bestätigung benötigt" %></p><br />
+      <p class="usertextfield"><%= f.password_field :current_password, autocomplete: "off" %></p>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update", :class => 'submitbutton' %>
+    </div>
+  <% end %>
+
+  <h3 class="userlabel">Du möchtest deinen Account löschen?</h2>
+
+  <p><%= button_to "Account löschen", registration_path(resource_name), data: { confirm: "Bist du sicher?" }, method: :delete, :class => 'submitbutton' %></p>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
